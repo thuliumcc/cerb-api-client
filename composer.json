@@ -1,0 +1,13 @@
+{
+  "name": "thuliumcc/cerb-api-client",
+  "description": "Cerb REST API client",
+  "autoload": {
+    "psr-4": {
+      "Cerb\\": "src/Cerb"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.8.*",
+    "letsdrink/ouzo-goodies": "dev-master"
+  }
+}
