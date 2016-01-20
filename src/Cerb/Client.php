@@ -30,24 +30,24 @@ class Client
         $this->curlCaller = $curlCaller ?: new CurlCaller($this->uri, $this->accessKey, $this->secretKey);
     }
 
-    public function get($url)
+    public function get($resource)
     {
-        return $this->call('GET', $url);
+        return $this->call('GET', $resource);
     }
 
-    public function put($url, $payload = null)
+    public function put($resource, $payload = null)
     {
-        return $this->call('PUT', $url, $payload);
+        return $this->call('PUT', $resource, $payload);
     }
 
-    public function post($url, $payload = null)
+    public function post($resource, $payload = null)
     {
-        return $this->call('POST', $url, $payload);
+        return $this->call('POST', $resource, $payload);
     }
 
-    public function delete($url)
+    public function delete($resource)
     {
-        return $this->call('DELETE', $url);
+        return $this->call('DELETE', $resource);
     }
 
     public function call($verb, $resource, $payload = null)
