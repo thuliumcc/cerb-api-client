@@ -37,7 +37,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
         $client = new Client('', '', '', $curl);
 
         //when
-        $tickets = $client->getTickets(['q', 'identifier:1557751']);
+        $tickets = $client->getTickets([['q', 'identifier:1557751']]);
 
         //then
         Assert::thatArray($tickets)->onProperty('mask')->containsExactly('ACB-99934-772');
