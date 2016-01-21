@@ -52,32 +52,14 @@ class SearchBuilderTest extends PHPUnit_Framework_TestCase
     {
         //given
         $searchBuilder = SearchBuilder::instance()
-            ->addSortBy('id');
+            ->addSortBy('id', Order::DESC);
 
         //when
         $toArray = $searchBuilder->toArray();
 
         //then
         $expected = [
-            ['sortBy', 'id']
-        ];
-        $this->assertEquals($expected, $toArray);
-    }
-
-    /**
-     * @test
-     */
-    public function shouldBuildSortAsc()
-    {
-        //given
-        $searchBuilder = SearchBuilder::instance()
-            ->addSortAsc(Order::DESC);
-
-        //when
-        $toArray = $searchBuilder->toArray();
-
-        //then
-        $expected = [
+            ['sortBy', 'id'],
             ['sortAsc', '0']
         ];
         $this->assertEquals($expected, $toArray);

@@ -34,20 +34,12 @@ class SearchBuilder
 
     /**
      * @param string $column
-     * @return $this
-     */
-    public function addSortBy($column)
-    {
-        $this->search[] = ['sortBy', $column];
-        return $this;
-    }
-
-    /**
      * @param int $type
      * @return $this
      */
-    public function addSortAsc($type)
+    public function addSortBy($column, $type = Order::ASC)
     {
+        $this->search[] = ['sortBy', $column];
         $this->search[] = ['sortAsc', $type];
         return $this;
     }
