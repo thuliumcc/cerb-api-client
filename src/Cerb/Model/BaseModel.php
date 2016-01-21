@@ -1,6 +1,7 @@
 <?php
 namespace Cerb\Model;
 
+use Cerb\Result;
 use Ouzo\Utilities\Arrays;
 use stdClass;
 
@@ -39,18 +40,19 @@ abstract class BaseModel
 
     /**
      * @param stdClass $result
-     * @return static[]
+     * @return Result
      */
-    public static function convertToModels($result)
+    public static function convertToResultModels($result)
     {
+        $models = [];
+        $total = 0;
         if ($result->results) {
-            $models = [];
+            $total = $result->total;
             foreach ($result->results as $result) {
                 $models[] = self::convertToModel($result);
             }
-            return $models;
         }
-        return [];
+        return new Result($models, $total);
     }
 
     /**

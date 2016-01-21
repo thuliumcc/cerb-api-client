@@ -88,12 +88,12 @@ class Client
 
     /**
      * @param array|string $where
-     * @return Ticket[]
+     * @return Result
      */
     public function getTickets($where)
     {
         $result = $this->post('/tickets/search.json', $where);
-        return Ticket::convertToModels($result);
+        return Ticket::convertToResultModels($result);
     }
 
     /**

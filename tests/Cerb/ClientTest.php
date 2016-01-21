@@ -40,6 +40,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
         $tickets = $client->getTickets([['q', 'identifier:1557751']]);
 
         //then
-        Assert::thatArray($tickets)->onProperty('mask')->containsExactly('ACB-99934-772');
+        $this->assertEquals(1, $tickets->getTotal());
+        Assert::thatArray($tickets->getResults())->onProperty('mask')->containsExactly('ACB-99934-772');
     }
 }
