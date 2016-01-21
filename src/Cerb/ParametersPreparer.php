@@ -3,6 +3,10 @@ namespace Cerb;
 
 class ParametersPreparer
 {
+    /**
+     * @param string|array $from
+     * @return string
+     */
     public static function postfields($from)
     {
         $postfields = null;
@@ -22,6 +26,10 @@ class ParametersPreparer
         return $postfields;
     }
 
+    /**
+     * @param string $queryString
+     * @return string
+     */
     public static function sortedUrlQueryString($queryString)
     {
         $queryString = ltrim($queryString, '?');

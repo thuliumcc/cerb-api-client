@@ -1,12 +1,29 @@
 <?php
 namespace Cerb;
 
+use Exception;
+use stdClass;
+
 class CurlCaller
 {
+    /**
+     * @var string
+     */
     private $uri;
+    /**
+     * @var string
+     */
     private $accessKey;
+    /**
+     * @var string
+     */
     private $secretKey;
 
+    /**
+     * @param string $uri
+     * @param string $accessKey
+     * @param string $secretKey
+     */
     public function __construct($uri, $accessKey, $secretKey)
     {
         $this->uri = $uri;
@@ -14,6 +31,13 @@ class CurlCaller
         $this->secretKey = $secretKey;
     }
 
+    /**
+     * @param string $verb
+     * @param string $resource
+     * @param string $payload
+     * @return stdClass
+     * @throws Exception
+     */
     public function call($verb, $resource, $payload)
     {
         $baseUrl = $this->uri . '/' . ltrim($resource, '/');
